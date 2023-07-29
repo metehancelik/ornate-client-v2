@@ -16,8 +16,8 @@ const PrivateRoute = () => {
             </Layout>
         )
     }
-    if (userSession?.role === 'sales') {
-        return <Navigate to='/' replace />;
+    if (userSession?.role === 'sales' || !userSession) {
+        return <Navigate to='/login' replace />;
     }
     return <Navigate to='/' replace />;
 

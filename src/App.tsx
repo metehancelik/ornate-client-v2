@@ -19,6 +19,7 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from './store'
 import { checkSession } from './features/authSlice'
+import Dashboard from './pages/Dashboard'
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
     <Routes>
       <Route path='/login' element={<Login />} />
       <Route element={<PrivateRoute />} >
-        <Route path='/dashboard' element={<AllUsers />} />
+        <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/users' element={<AllUsers />} />
         <Route path='/create-user' element={<CreateUser />} />
         <Route path='/inquiries' element={<AllInquiries />} />
@@ -53,6 +54,7 @@ function App() {
         <Route path='/edit-call-request' element={<EditCallRequest />} />
         <Route path='/edit-inquiry' element={<EditInquiry />} />
       </Route>
+      
     </Routes>
   )
 }

@@ -18,7 +18,7 @@ const EmployeeRoute = () => {
         return <Navigate to={'/'} />
     }
     else {
-        return;
+        return <Navigate to='/login'/>;
     }
 };
 
