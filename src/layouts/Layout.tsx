@@ -154,9 +154,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
                 {/* Layout component, swap this element with another sidebar if you like */}
                 <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6">
-                    <div className="flex shrink-0 items-center">
+                    <div className="flex shrink-0 my-2 items-center">
                         <img
-                            className="h-12 w-auto"
+                            className="h-24 w-auto object-contain object-center"
                             src={Logo}
                             alt="Your Company"
                         />
@@ -183,7 +183,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     ))}
                                 </ul>
                             </li>
-                            <li className="-mx-6 mt-auto flex justify-between">
+                            {/* <li className="-mx-6 mt-auto flex justify-between">
                                 <Link
                                     to="#"
                                     className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-gray-800"
@@ -207,7 +207,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     Tooltip content
                                     <div className="tooltip-arrow" data-popper-arrow></div>
                                 </div>
-                            </li>
+                            </li> */}
                         </ul>
 
                     </nav>
