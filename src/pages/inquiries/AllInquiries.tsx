@@ -1,13 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store';
-import { getInquiries } from '../../features/inquirySlice';
+import { IPayload, getInquiries } from '../../features/inquirySlice';
 import { IInquiry } from '../../interfaces';
 
 const AllInquiries = () => {
   const { data: inquiries } = useSelector((state: RootState) => state.inquiry);
   const dispatch = useDispatch<AppDispatch>();
+  const [payload, setPayload] = useState({
+    payload: {
+      offerupNick: '',
+      customerName: '',
+      firstName: '',
+      productName: '',
+    },
+    page: 1,
+  });
+  const [page, setPage] = useState(1);
+
+  const handleSubmit = (values: any) => {
+    setPayload({ payload: { ...values }, page: page });
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -16,22 +30,12 @@ const AllInquiries = () => {
       firstName: '',
       productName: '',
     },
-    onSubmit: () => {},
+    onSubmit: handleSubmit,
   });
 
   useEffect(() => {
-    dispatch(
-      getInquiries({
-        payload: {
-          offerupNick: '',
-          firstName: '',
-          customerName: '',
-          productName: '',
-        },
-        page: 1,
-      })
-    );
-  }, []);
+    dispatch(getInquiries(payload));
+  }, [payload]);
 
   return (
     <div>
