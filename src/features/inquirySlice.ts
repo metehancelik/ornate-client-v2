@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { IInquiry } from '../interfaces';
 import userService from '../services/userService';
 
-interface IPayload {
+export interface IPayload {
   payload: IInquiry;
   page: number;
 }
